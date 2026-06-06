@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Information - Crop Recommendation System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Banner Section */
+        .crop-banner {
+            position: relative;
+            background-image: url("{{ url_for('static', filename='images/crop-info/crop-info-bg.jpg') }}");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 3rem 0;
+            z-index: 1;
+        }
+
+        .crop-banner::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(35, 212, 35, 0.5);
+            z-index: -1;
+        }
+
+        .crop-banner h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        /* Crop Card Section */
+        .crop-cards {
+            padding: 3rem 0;
+        }
+
+        .crop-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            height: 100%;
+        }
+
+        .crop-card:hover {
+            transform: translateY(-10px);
+            background-color: rgb(229, 235, 233);
+        }
+
+        .crop-card img {
+            max-height: 150px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background-color: #085a16;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #085a16">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Crop Recommendation</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/crop-info">Crop Information</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="crop-banner text-center">
+        <div class="container">
+            <h1>Learn About Crops</h1>
+            <p>Discover important details about various crops to help you make informed decisions.</p>
+        </div>
+    </section>
+
+    <section class="crop-cards">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="crop-card p-3 text-center">
+                        <img src="{{ url_for('static', filename='images/crop-info/wheat.jpg') }}" class="img-fluid" alt="Wheat">
+                        <h5>Wheat</h5>
+                        <p><strong>Growth Cycle:</strong> 100-120 days</p>
+                        <p><strong>Soil:</strong> Loamy or clayey soil</p>
+                        <p><strong>Common Pests:</strong> Aphids, Leaf Rust</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="crop-card p-3 text-center">
+                        <img src="{{ url_for('static', filename='images/crop-info/crop-info-bg.jpg') }}" class="img-fluid" alt="Rice">
+                        <h5>Rice</h5>
+                        <p><strong>Growth Cycle:</strong> 120-140 days</p>
+                        <p><strong>Soil:</strong> Clayey soil with standing water</p>
+                        <p><strong>Common Pests:</strong> Rice Blast</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="crop-card p-3 text-center">
+                        <img src="{{ url_for('static', filename='images/crop-info/maize.jpg') }}" class="img-fluid" alt="Maize">
+                        <h5>Maize</h5>
+                        <p><strong>Growth Cycle:</strong> 90-120 days</p>
+                        <p><strong>Soil:</strong> Well-drained fertile soil</p>
+                        <p><strong>Common Pests:</strong> Corn Earworm</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Crop Recommendation System. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
